@@ -1,0 +1,4 @@
+D:\Projects\Unity\SudokuGame\SudokuLibrary\obj\Debug\net7.0\SudokuLibrary.fsproj.AssemblyReference.cache
+D:\Projects\Unity\SudokuGame\SudokuLibrary\obj\Debug\net7.0\SudokuLibrary.AssemblyInfoInputs.cache
+D:\Projects\Unity\SudokuGame\SudokuLibrary\obj\Debug\net7.0\SudokuLibrary.AssemblyInfo.fs
+D:\Projects\Unity\SudokuGame\SudokuLibrary\obj\Debug\net7.0\SudokuLibrary.fsproj.CoreCompileInputs.cache

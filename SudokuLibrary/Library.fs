@@ -1,0 +1,52 @@
+﻿namespace Search
+
+module solution =
+    open definitions
+    let checkState state =
+        let rows = state
+        let cols = List.transpose state
+        let sgrids = 
+            state 
+            |> List.chunkBySize 3
+            |> List.map (fun chunk -> chunk |> List.transpose |> List.concat)
+            |> List.concat
+            |> List.chunkBySize 9
+        let duplicates list = 
+            list
+            |>List.forall (fun x -> 
+                x |> List.countBy id |> List.forall (fun y ->
+                    match y with
+                    | (0, _) -> true
+                    | (_, 1) -> true
+                    | (_, _) -> false
+                )
+            )
+        rows |> duplicates && cols |> duplicates && sgrids |> duplicates
+       
+    let output state = 
+        let b = checkState state
+        match b with
+        | true -> 
+            let t0 = System.DateTime.UtcNow
+            let rec newton_Raphson N K b =
+                let f = b ** (K + 1.0) + b * (1.0 - N) - 1.0
+                let f' = (K + 1.0) * b ** K
+                let b' = b - f / f'
+                let aux = abs(b' - b) < 0.00001
+                match aux with
+                | true -> b'
+                | false -> newton_Raphson N K b'
+            match Chapter3.treeSearch DFS.strategy (Sudoku.problem state) with
+            | Some n ->
+                let finalGrid = n.state
+                let nodesExpanded = Chapter3.expanded_nodes
+                let branchingFactor = newton_Raphson nodesExpanded n.depth 1.0
+                let timeElapsed = System.DateTime.UtcNow - t0
+                Some {
+                    grid = finalGrid
+                    nodes = nodesExpanded
+                    branching = branchingFactor
+                    time = timeElapsed
+                }
+            | None -> None
+        | false -> None
