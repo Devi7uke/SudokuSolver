@@ -6,33 +6,50 @@ using Search;
 using System.Runtime.CompilerServices;
 using Microsoft.FSharp.Collections;
 using System.Linq;
+using TMPro;
 
 public class UIBehavior : MonoBehaviour{
+	private List<List<int>> auxiliarList;
 	[SerializeField]
-	private FSharpList<FSharpList<int>> list;
+	private GameObject canva;
+	private List<GameObject> listInput = new List<GameObject>();	
 	// Start is called before the first frame update
 	void Start(){
-		
+		for(int i = 0; i<81; i++){
+			listInput.Add(canva.transform.GetChild(i).gameObject);
+		}
 	}
-
 	// Update is called once per frame
 	void Update(){
-        List<List<int>> myList = new List<List<int>>(){
-			new List<int>() {2, 5, 0, 0, 3, 0, 9, 0, 1},
-			new List<int>() {0, 1, 0, 0, 0, 4, 0, 0, 0},
-			new List<int>() {4, 0, 7, 0, 0, 0, 2, 0, 8},
-			new List<int>() {0, 0, 5, 2, 0, 0, 0, 0, 0},
-			new List<int>() {0, 0, 0, 0, 9, 8, 1, 0, 0},
-			new List<int>() {0, 4, 0, 0, 0, 3, 0, 0, 0},
-			new List<int>() {0, 0, 0, 3, 6, 0, 0, 7, 2},
-			new List<int>() {0, 7, 0, 0, 0, 0, 0, 0, 3},
-			new List<int>() {9, 0, 3, 0, 0, 0, 6, 0, 4}
-		};
-        FSharpList<FSharpList<int>> myFSharpList = ListModule.OfSeq(
-            myList.Select(l => ListModule.OfSeq(l))
-        );
-        var result = Search.solution.output(myFSharpList);
-		
-		Debug.Log(result.ToString());
+		if (Input.GetKeyDown(KeyCode.Space)){
+			ObtainInput();
+            FSharpList<FSharpList<int>> myFSharpList = ListModule.OfSeq(
+				auxiliarList.Select(l => ListModule.OfSeq(l))
+			);
+            var result = Search.solution.output(myFSharpList);
+			if (result != null)
+			{
+                Debug.Log(result.ToString());
+            }else
+			{
+                Debug.Log("There is no solution for that input :(");
+            }
+			
+        }
 	}
+	void ObtainInput(){
+		List<int> values = new List<int>();
+		foreach (GameObject i in listInput){
+			string aux = i.GetComponentInChildren<TMP_InputField>().text;
+			if (aux != null && aux != ""){
+                values.Add(int.Parse(aux));
+			}else{
+                values.Add(0);
+            }
+		}
+		auxiliarList = new List<List<int>>();
+		for (int i = 0; i < 9; i++){
+			auxiliarList.Add(values.GetRange(i*9, 9));
+        }
+    }
 }
