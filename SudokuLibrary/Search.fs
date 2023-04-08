@@ -1,34 +1,34 @@
 namespace Search
-module definitions =
-    type problem<'s, 'a> = {
-        start       :   's
-        successors  :   's -> list<'a * 's>
-        goal        :   's -> bool
-        cost        :   's -> 'a -> 's -> float
-    }
+    
+type problem<'s, 'a> = {
+    start       :   's
+    successors  :   's -> list<'a * 's>
+    goal        :   's -> bool
+    cost        :   's -> 'a -> 's -> float
+}
 
-    type node<'s, 'a> = {
-        depth       :   int
-        path_cost   :   float
-        state       :   's
-        action      :   option<'a>
-        parent      :   option<node<'s, 'a>>
-    }
+type node<'s, 'a> = {
+    depth       :   int
+    path_cost   :   float
+    state       :   's
+    action      :   option<'a>
+    parent      :   option<node<'s, 'a>>
+}
 
-    type strategy<'s, 'a, 'd> = {
-        empty       :   'd
-        insert      :   'd -> node<'s, 'a> -> 'd
-        remove      :   'd -> option<node<'s, 'a> * 'd>
-    }
+type strategy<'s, 'a, 'd> = {
+    empty       :   'd
+    insert      :   'd -> node<'s, 'a> -> 'd
+    remove      :   'd -> option<node<'s, 'a> * 'd>
+}
 
-    type solution<'g, 'n, 'b, 't> = {
-        grid        :   'g
-        nodes       :   'n
-        branching   :   'b
-        time        :   't
-    }
+type solution<'s> = {
+    grid        :   's
+    nodes       :   float
+    branching   :   float
+    time        :   System.TimeSpan
+}
+
 module Chapter3 =
-    open definitions
     let mutable expanded_nodes = 0.0
 
     let initialNode state = {
@@ -89,7 +89,6 @@ module Chapter3 =
         | _ -> []
 
 module Chapter4 =
-    open definitions
     open Chapter3
     open System
     let hillClimbing h problem =

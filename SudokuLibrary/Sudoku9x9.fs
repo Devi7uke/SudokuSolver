@@ -1,7 +1,6 @@
 namespace Search
 
 module Sudoku =
-    open definitions
     type action =
         | Place
     // Sudoku problem data structure type (Part of the definition of the Sudoku proble)

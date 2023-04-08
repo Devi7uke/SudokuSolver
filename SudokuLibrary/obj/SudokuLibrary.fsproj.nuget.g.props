@@ -13,6 +13,7 @@
     <SourceRoot Include="C:\Users\dvlk8\.nuget\packages\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgNETStandard_Library Condition=" '$(PkgNETStandard_Library)' == '' ">C:\Users\dvlk8\.nuget\packages\netstandard.library\2.0.3</PkgNETStandard_Library>
     <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">C:\Users\dvlk8\.nuget\packages\fsharp.core\7.0.200</PkgFSharp_Core>
   </PropertyGroup>
 </Project>

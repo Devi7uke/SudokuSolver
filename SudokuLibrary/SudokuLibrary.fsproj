@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
 	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
@@ -11,11 +11,11 @@
 	  <Compile Include="Queue.fs" />
 	  <Compile Include="Search.fs" />
 	  <Compile Include="DepthFirstSearch.fs" />
-	  <Compile Include="AAsterisk.fs"/>
+	  <Compile Include="AAsterisk.fs" />
 	  <Compile Include="Sudoku9x9.fs" />
 	  <Compile Include="Library.fs" />
   </ItemGroup>
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Copy SourceFiles="$(TargetPath);$(TargetDir)FSharp.Core.dll" DestinationFolder="$(ProjectDir)../Assets/" SkipUnchangedFiles="true"></Copy>
+		<Copy SourceFiles="$(TargetPath);$(TargetDir)FSharp.Core.dll" DestinationFolder="$(ProjectDir)../Assets/Plugins/" SkipUnchangedFiles="true"></Copy>
 	</Target>
 </Project>

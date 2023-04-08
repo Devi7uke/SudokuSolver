@@ -1,7 +1,6 @@
 ﻿namespace Search
 
 module solution =
-    open definitions
     let checkState state =
         let rows = state
         let cols = List.transpose state
@@ -14,7 +13,8 @@ module solution =
         let duplicates list = 
             list
             |>List.forall (fun x -> 
-                x |> List.countBy id |> List.forall (fun y ->
+                x 
+                |> List.countBy id |> List.forall (fun y ->
                     match y with
                     | (0, _) -> true
                     | (_, 1) -> true
