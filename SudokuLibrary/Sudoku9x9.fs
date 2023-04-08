@@ -56,3 +56,24 @@ module Sudoku =
         goal = goal
         cost = cost
     }
+    let heuristicOne node =
+        let zeros = node.state |> List.mapi (fun i row ->
+            row
+            |> List.mapi (fun j x -> (i, j, x))
+            |> List.filter (fun (_, _, x) -> x = 0)
+            |> List.map (fun (i, j, _) -> (i, j))
+        )
+        let possibilities = List.concat zeros |> List.sumBy (fun (i, j) ->
+            let row = rows node.state |> List.item i 
+            let col = cols node.state |> List.item j
+            let sgr = grids node.state |> List.item (i/3*3 + j/3)
+            let guess = [1..9] |> List.filter (fun cand -> not (row |> List.contains cand || col |> List.contains cand || sgr |> List.contains cand))
+            1/(guess.Length + 1) |> float
+        )
+        possibilities + float node.depth
+
+    let heuristicTwo node =
+        let zeros = node.state |> List.sumBy (fun i ->
+            i |> List.filter (fun j -> j = 0) |> List.length
+        )
+        zeros |> float

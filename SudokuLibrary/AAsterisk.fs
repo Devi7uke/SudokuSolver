@@ -1,6 +1,7 @@
 namespace Search
 
 module AAS =
+    open definitions
     let strategy h = {
         empty = Map.empty
         insert = fun pqueue x -> Map.add (x.path_cost + h x, x.state) x pqueue

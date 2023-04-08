@@ -11,6 +11,7 @@
 	  <Compile Include="Queue.fs" />
 	  <Compile Include="Search.fs" />
 	  <Compile Include="DepthFirstSearch.fs" />
+	  <Compile Include="AAsterisk.fs"/>
 	  <Compile Include="Sudoku9x9.fs" />
 	  <Compile Include="Library.fs" />
   </ItemGroup>

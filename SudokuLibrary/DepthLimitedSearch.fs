@@ -1,6 +1,7 @@
 namespace Search
 
 module DFSL =
+    open definitions
     let strategy l = {
         empty = Stack.empty
         insert = fun stack n -> 
