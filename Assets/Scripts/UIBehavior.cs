@@ -18,12 +18,50 @@ public class UIBehavior : MonoBehaviour{
 	[SerializeField]
 	private GameObject solution;
 	private List<GameObject> listInput = new List<GameObject>();
+	private List<List<int>> case1, case2, case3;
 	// Start is called before the first frame update
 	void Start(){
 		for(int i = 1; i<82; i++){
 			listInput.Add(canva.transform.GetChild(i).gameObject);
 		}
-	}
+		case1 = new List<List<int>>(){
+			new List<int>() {0, 6, 0, 1, 0, 4, 0, 5, 0}, //0
+            new List<int>() {0, 0, 8, 3, 0, 5, 6, 0, 0}, //1
+			new List<int>() {2, 0, 0, 0, 0, 0, 0, 0 ,1}, //2
+			new List<int>() {8, 0, 0, 4, 0, 7, 0, 0, 6}, //3
+			new List<int>() {0, 0, 6, 0, 0, 0, 3, 0, 0}, //4
+			new List<int>() {7, 0, 0, 9, 0, 1, 0, 0, 4}, //5
+			new List<int>() {5, 0, 0, 0, 0, 0, 0, 0, 2}, //6
+			new List<int>() {0, 0, 7, 2, 0, 6, 9, 0, 0}, //7
+			new List<int>() {0, 4, 0, 5, 0, 8, 0, 7, 0}  //8
+        };
+
+		case2 = new List<List<int>>()
+		{
+            new List<int>() {0, 0, 0, 0, 0, 4, 9, 0, 0}, //0
+            new List<int>() {0, 0, 5, 3, 2, 0, 0, 0, 0}, //1
+			new List<int>() {2, 0, 0, 0, 0, 6, 0, 4, 0}, //2
+			new List<int>() {8, 0, 4, 0, 0, 0, 0, 6, 0}, //3
+			new List<int>() {0, 5, 0, 0, 6, 0, 0, 1, 0}, //4
+			new List<int>() {0, 1, 0, 0, 0, 0, 3, 0, 9}, //5
+			new List<int>() {0, 2, 0, 8, 0, 0, 0, 0, 6}, //6
+			new List<int>() {0, 0, 0, 0, 7, 9, 1, 0, 0}, //7
+			new List<int>() {0, 0, 9, 5, 0, 0, 0, 0, 0}  //8
+		};
+
+        case3 = new List<List<int>>()
+        {
+            new List<int>() {0, 0, 9, 0, 2, 8, 0, 0, 0}, //0
+            new List<int>() {0, 8, 0, 0, 0, 0, 9, 0, 0}, //1
+			new List<int>() {0, 7, 0, 0, 5, 0, 0, 0, 0}, //2
+			new List<int>() {0, 3, 8, 9, 0, 0, 1, 0, 5}, //3
+			new List<int>() {0, 0, 0, 0, 0, 0, 0, 0, 0}, //4
+			new List<int>() {6, 0, 4, 0, 0, 5, 2, 9, 0}, //5
+			new List<int>() {0, 0, 0, 0, 4, 0, 0, 6, 0}, //6
+			new List<int>() {0, 0, 6, 0, 0, 0, 0, 3, 0}, //7
+			new List<int>() {0, 0, 0, 7, 3, 0, 5, 0, 0}  //8
+		};
+    }
 	private void ObtainInput(){
 		List<int> values = new List<int>();
 		foreach (GameObject i in listInput){
@@ -77,6 +115,25 @@ public class UIBehavior : MonoBehaviour{
         statusText.GetComponent<TextMeshProUGUI>().text = "Status: Waiting";
 		solution.GetComponent<TextMeshProUGUI>().text = "Nodes: 0\nABF: 0.00\nTime: 00:0000";
     }
+	private void placeTestCase(int o){
+		for(int i = 0; i < listInput.Count; i++){
+			int num = o == 0 ? case1[i / 9][i % 9] : o == 1 ? case2[i / 9][i % 9] : case3[i / 9][i % 9];
+            listInput[i].GetComponentInChildren<TMP_InputField>().text = num == 0 ? "" : num.ToString();
+        }
+	}
+
+	public void placeTestCaseOne(){
+		placeTestCase(0);
+
+    }
+	public void placeTestCaseTwo(){
+        placeTestCase(1);
+    }
+
+	public void placeTestCaseThree(){
+        placeTestCase(2);
+    }
+
 	public void QuitGame(){
 		#if UNITY_EDITOR
 			UnityEditor.EditorApplication.isPlaying = false;
