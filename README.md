@@ -10,6 +10,7 @@ A continuación, se presentan las instrucciones para generar el ejecutable del p
 Es importante seguir los pasos en el orden indicado para poder generar el ejecutable correctamente. También es necesario tener en cuenta que se debe contar con una cuenta personal en Unity Hub y tener instalado el editor de la versión específica mencionada.
 # Integrantes
 Leonardo Mata Hernandez         172761 - T43A
+
 Brayan Javier Frias Sandoval    172817 - T43B
 # Advertencia
 En caso de que le sea imposible crear el ejecutable para probar el programa y su interfaz, se proporciona un enlace que contiene la carpeta del proyecto ya generado y listo para su ejecución.
