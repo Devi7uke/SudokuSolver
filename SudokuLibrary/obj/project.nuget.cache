@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "r3y10c4d9b9Nm+mMiMQ5IfnfiT0CjAZbb/ay3RuaH2dqdw+r+Q09Quoac2jUad+uOCjQusRcYwNrItZnkDb38Q==",
+  "dgSpecHash": "mnVTm4V/waiqPyxW6+QowNXV747WbvLHarNMOryQNO5N0O7r/EL9xtOTIBxfjkOMzhAmLPu6wfiYJnyBznWsPw==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Unity\\SudokuGame\\SudokuLibrary\\SudokuLibrary.fsproj",
+  "projectFilePath": "D:\\Projects\\Unity\\SudokuSolver\\SudokuLibrary\\SudokuLibrary.fsproj",
   "expectedPackageFiles": [
     "C:\\Users\\dvlk8\\.nuget\\packages\\fsharp.core\\7.0.200\\fsharp.core.7.0.200.nupkg.sha512",
     "C:\\Users\\dvlk8\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

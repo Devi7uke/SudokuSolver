@@ -1,12 +1,12 @@
 namespace Search
-    
+//Datatype that describes the characteristics of a problem that can be used with the Search Algorithms
 type problem<'s, 'a> = {
     start       :   's
     successors  :   's -> list<'a * 's>
     goal        :   's -> bool
     cost        :   's -> 'a -> 's -> float
 }
-
+//Datatype that describes the content of a vertex in the graph
 type node<'s, 'a> = {
     depth       :   int
     path_cost   :   float
@@ -14,13 +14,18 @@ type node<'s, 'a> = {
     action      :   option<'a>
     parent      :   option<node<'s, 'a>>
 }
-
+//Datatype that describes the content of a strategy like BFS or DFS
 type strategy<'s, 'a, 'd> = {
     empty       :   'd
     insert      :   'd -> node<'s, 'a> -> 'd
     remove      :   'd -> option<node<'s, 'a> * 'd>
 }
 
+(*
+Datatype that contains the solution for a sudoku problem
+The output of the function includes the final valid solution for the given grid, the number of nodes expanded during the search, 
+the approximate average branching factor, and the time it takes for the algorithm to solve the problem.
+*)
 type solution<'s> = {
     grid        :   's
     nodes       :   float
@@ -29,6 +34,7 @@ type solution<'s> = {
 }
 
 module Chapter3 =
+    //A variable that stores the nodes expanded during the execution.
     let mutable expanded_nodes = 0.0
 
     let initialNode state = {
@@ -38,7 +44,7 @@ module Chapter3 =
         action = None
         parent = None
     }
-    
+    //Fucntion that retrive the succesors of the current state and generates the nodes for solve the problem
     let expand problem parent = 
         expanded_nodes <- expanded_nodes + 1.0
         problem.successors parent.state
@@ -49,7 +55,7 @@ module Chapter3 =
             parent = Some parent
             path_cost = parent.path_cost + problem.cost parent.state a s
         })
-
+    //Algorithm that recives a problem and a strategy to genereate a graph data structure to explore it based on the strategy til a solution is found
     let treeSearch strategy problem =
         let root = initialNode problem.start
         let fringe = strategy.insert strategy.empty root
@@ -64,7 +70,7 @@ module Chapter3 =
                     |> loop
             | None -> None
         loop fringe
-
+    //A variant of the algorithm described above, it includes a memory that disallow the algorithm from regenerating already visited nodes.
     let graphSearch key strategy problem =
         let root = initialNode problem.start
         let fringe = strategy.insert strategy.empty root
@@ -82,48 +88,8 @@ module Chapter3 =
                         |> (fun fringe -> loop (fringe, Set.add (key n) processed))
             | None -> None
         loop (fringe, Set.empty)
-
+    //Function that returns the steps followed to reach the solution.
     let rec actions n =
         match n.action, n.parent with
         | Some a, Some p -> actions p @ [a]
         | _ -> []
-
-module Chapter4 =
-    open Chapter3
-    open System
-    let hillClimbing h problem =
-        let current = initialNode problem.start
-        let rec loop current =
-            let successors = expand problem current
-            let neighbor = List.minBy h successors
-            let b = h neighbor >= h current
-            match b with
-            | true -> current
-            | false -> loop neighbor
-        loop current
-
-    let temperature T0 lamda t =
-        let T = T0 * Math.Exp(-lamda * t)
-        let b = T < 1E-6
-        match b with
-        | true -> 0.0
-        | false -> T
-
-    let simulatedAnnealing seed h temperature problem =
-        let random = System.Random(seed)
-        let current = initialNode problem.start
-        let rec loop (t, current) =
-            let T = temperature t
-            let b = T = 0.0
-            match b with
-            | true -> current
-            | false -> 
-                let successors = expand problem current
-                let i = random.Next(List.length successors)
-                let next = List.item i successors
-                let delta = h next - h current
-                let b' = delta < 0.0 || random.NextDouble() <= Math.Exp (delta / T)
-                match b' with
-                | true -> loop (t + 1.0, next)
-                | false -> loop (t + 1.0, current)
-        loop (1.0, current)

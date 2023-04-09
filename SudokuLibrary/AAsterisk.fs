@@ -1,5 +1,5 @@
 namespace Search
-
+// A Star is a strategy that works by evaluating the cost of each possible path from the starting point to the target point using the addition of the estimate of the remaining distance and the actual distance traveled
 module AAS =
     let strategy h = {
         empty = Map.empty

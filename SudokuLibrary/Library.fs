@@ -1,6 +1,7 @@
 ﻿namespace Search
 
 module solution =
+    // The function evaluates whether there are any duplicate numbers in elements where duplication is not allowed and whether the given initial state is already a goal state.
     let checkState state =
         let rows = state
         let cols = List.transpose state
@@ -10,6 +11,7 @@ module solution =
             |> List.map (fun chunk -> chunk |> List.transpose |> List.concat)
             |> List.concat
             |> List.chunkBySize 9
+        // Function that returns a boolean value indicating if there is at least one duplicate value in a list of lists of integers.
         let duplicates list = 
             list
             |>List.forall (fun x -> 
@@ -21,12 +23,14 @@ module solution =
                     | (_, _) -> false
                 )
             )
+        // Fucntion that return a boolean value that indicates if the given state is a goal state
         let goal state =
             let checkSubGrid grid = List.sort grid = [1..9]
             let checkRow row = List.sort row = [1..9]
             let checkCol col = List.sort col = [1..9]
             cols|> List.forall checkCol && rows|> List.forall checkRow && sgrids|> List.forall checkSubGrid
         not(goal state) && rows |> duplicates && cols |> duplicates && sgrids |> duplicates
+    // The function returns a datatype that contains the solution for the valid given state using the Depth First Search stretegy.
     let outputDFS state = 
         Chapter3.expanded_nodes <- 0;
         let b = checkState state
@@ -55,7 +59,7 @@ module solution =
                 }
             | None -> None
         | false -> None
-
+    // The function returns a datatype that contains the solution for the valid given state using the A Star strategy.
     let outputAStar state =
         Chapter3.expanded_nodes <- 0;
         let b = checkState state
@@ -70,7 +74,7 @@ module solution =
                 match aux with
                 | true -> b'
                 | false -> newton_Raphson N K b'
-            match Chapter3.graphSearch (AAS.key Sudoku.heuristicTwo) (AAS.strategy Sudoku.heuristicTwo) (Sudoku.problem state) with
+            match Chapter3.graphSearch (AAS.key Sudoku.heuristicOne) (AAS.strategy Sudoku.heuristicOne) (Sudoku.problem state) with
             | Some n ->
                 let finalGrid = n.state
                 let nodesExpanded = Chapter3.expanded_nodes

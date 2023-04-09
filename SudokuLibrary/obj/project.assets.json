@@ -282,11 +282,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Unity\\SudokuGame\\SudokuLibrary\\SudokuLibrary.fsproj",
+      "projectUniqueName": "D:\\Projects\\Unity\\SudokuSolver\\SudokuLibrary\\SudokuLibrary.fsproj",
       "projectName": "SudokuLibrary",
-      "projectPath": "D:\\Projects\\Unity\\SudokuGame\\SudokuLibrary\\SudokuLibrary.fsproj",
+      "projectPath": "D:\\Projects\\Unity\\SudokuSolver\\SudokuLibrary\\SudokuLibrary.fsproj",
       "packagesPath": "C:\\Users\\dvlk8\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Unity\\SudokuGame\\SudokuLibrary\\obj\\",
+      "outputPath": "D:\\Projects\\Unity\\SudokuSolver\\SudokuLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dvlk8\\AppData\\Roaming\\NuGet\\NuGet.Config",
