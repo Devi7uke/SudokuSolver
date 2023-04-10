@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "mnVTm4V/waiqPyxW6+QowNXV747WbvLHarNMOryQNO5N0O7r/EL9xtOTIBxfjkOMzhAmLPu6wfiYJnyBznWsPw==",
+  "dgSpecHash": "dP5COSLC6jwMRrQvcfER1xQEkooZYZt+wlYgsMHfIkhwqNl+InX2Z3cKtt6qCx2mX/bNdcmj5H/syjrrmn33uw==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Unity\\SudokuSolver\\SudokuLibrary\\SudokuLibrary.fsproj",
+  "projectFilePath": "C:\\Users\\Brayan\\Documents\\GitHub\\SudokuGame\\SudokuLibrary\\SudokuLibrary.fsproj",
   "expectedPackageFiles": [
-    "C:\\Users\\dvlk8\\.nuget\\packages\\fsharp.core\\7.0.200\\fsharp.core.7.0.200.nupkg.sha512",
-    "C:\\Users\\dvlk8\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\dvlk8\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\Brayan\\.nuget\\packages\\fsharp.core\\7.0.200\\fsharp.core.7.0.200.nupkg.sha512",
+    "C:\\Users\\Brayan\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Brayan\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }
