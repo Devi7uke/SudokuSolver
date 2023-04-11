@@ -91,7 +91,7 @@ public class UIBehavior : MonoBehaviour{
 				listInput[i].GetComponentInChildren<TMP_InputField>().text = "";
                 listInput[i].GetComponentInChildren<TMP_InputField>().text = outputList[i/9][i%9].ToString();
             }
-			solution.GetComponent<TextMeshProUGUI>().text = "Nodes: " + result.Value.nodes + "\nABF: " + result.Value.branching.ToString("0.00") + "\nTime: " + result.Value.time.Seconds + "." + result.Value.time.Milliseconds + " s";
+			solution.GetComponent<TextMeshProUGUI>().text = "Nodes: " + result.Value.nodes + "\nABF: " + result.Value.branching.ToString("0.00") + "\nTime: "+ result.Value.time.Minutes + ":" + result.Value.time.Seconds + "." + result.Value.time.Milliseconds + " s";
             statusText.GetComponent<TextMeshProUGUI>().text = "Status: Solved";
         }
         else{

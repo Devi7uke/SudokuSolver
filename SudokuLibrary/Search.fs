@@ -46,7 +46,7 @@ module Chapter3 =
     }
     //Fucntion that retrive the succesors of the current state and generates the nodes for solve the problem
     let expand problem parent = 
-        expanded_nodes <- expanded_nodes + 1.0
+        expanded_nodes <- expanded_nodes + float (problem.successors parent.state).Length
         problem.successors parent.state
         |> List.map (fun (a, s) -> {
             depth = parent.depth + 1

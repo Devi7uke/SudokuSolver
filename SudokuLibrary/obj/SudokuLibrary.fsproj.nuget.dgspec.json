@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Unity\\SudokuSolver\\SudokuLibrary\\SudokuLibrary.fsproj": {}
+    "C:\\Users\\Brayan\\Documents\\GitHub\\SudokuGame\\SudokuLibrary\\SudokuLibrary.fsproj": {}
   },
   "projects": {
-    "D:\\Projects\\Unity\\SudokuSolver\\SudokuLibrary\\SudokuLibrary.fsproj": {
+    "C:\\Users\\Brayan\\Documents\\GitHub\\SudokuGame\\SudokuLibrary\\SudokuLibrary.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Unity\\SudokuSolver\\SudokuLibrary\\SudokuLibrary.fsproj",
+        "projectUniqueName": "C:\\Users\\Brayan\\Documents\\GitHub\\SudokuGame\\SudokuLibrary\\SudokuLibrary.fsproj",
         "projectName": "SudokuLibrary",
-        "projectPath": "D:\\Projects\\Unity\\SudokuSolver\\SudokuLibrary\\SudokuLibrary.fsproj",
-        "packagesPath": "C:\\Users\\dvlk8\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Unity\\SudokuSolver\\SudokuLibrary\\obj\\",
+        "projectPath": "C:\\Users\\Brayan\\Documents\\GitHub\\SudokuGame\\SudokuLibrary\\SudokuLibrary.fsproj",
+        "packagesPath": "C:\\Users\\Brayan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Brayan\\Documents\\GitHub\\SudokuGame\\SudokuLibrary\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\dvlk8\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Brayan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
