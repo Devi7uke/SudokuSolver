@@ -1,4 +1,4 @@
-# SudokuSolver
+# SudokuSolver con interfaz hecha en Unity
 A continuación, se presentan las instrucciones para generar el ejecutable del programa:
 1. Se debe instalar Unity Hub con una cuenta personal.
 2. Es necesario instalar el editor de Unity 2021.3.19f1.
@@ -8,6 +8,11 @@ A continuación, se presentan las instrucciones para generar el ejecutable del p
 6. Finalmente, se abrirá el ejecutable y se podrá utilizar el Sudoku Solver para resolver las entradas.
 
 Es importante seguir los pasos en el orden indicado para poder generar el ejecutable correctamente. También es necesario tener en cuenta que se debe contar con una cuenta personal en Unity Hub y tener instalado el editor de la versión específica mencionada.
+
+# SudokuSolver para trabajar con consola
+1. Es necesario abrir la carpeta SudokuConsole con Visual Studio o Visual Studio Code
+2. La entrada por teclado debe ser un string con 81 elementos separados por espacios. Cada elemento debe ser un número del 1 al 9. Si algún valor no cumple esta condición, se reemplazará por cero. En caso de que la cantidad de elementos sea inferior a 81, se pedirá una nueva entrada.
+
 # Integrantes
 Leonardo Mata Hernández         172761 - T43A
 
