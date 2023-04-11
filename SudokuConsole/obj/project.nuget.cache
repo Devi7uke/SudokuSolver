@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "wzaraIw/sAsKFMSnkpkKZZnr7rqY6Ey2RKSMGnolFk6TzeRlpkyH7q6zWmQF2JIuOKoLJJz2bDLM1LZCBDh1kA==",
+  "success": true,
+  "projectFilePath": "D:\\Projects\\Unity\\SudokuSolver\\SudokuConsole\\Sudoku.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dvlk8\\.nuget\\packages\\fsharp.core\\7.0.200\\fsharp.core.7.0.200.nupkg.sha512"
+  ],
+  "logs": []
+}
